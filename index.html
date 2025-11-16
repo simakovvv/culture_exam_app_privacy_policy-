@@ -9,7 +9,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f5f5f5;
@@ -24,17 +24,19 @@
             color: #2c3e50;
             border-bottom: 3px solid #3498db;
             padding-bottom: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         h2 {
             color: #34495e;
             margin-top: 30px;
             margin-bottom: 15px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
         }
         h3 {
             color: #555;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 25px;
+            margin-bottom: 12px;
         }
         p {
             margin-bottom: 15px;
@@ -52,12 +54,6 @@
             color: #666;
             margin-bottom: 30px;
         }
-        .contact-info {
-            background-color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 30px;
-        }
         a {
             color: #3498db;
             text-decoration: none;
@@ -65,62 +61,165 @@
         a:hover {
             text-decoration: underline;
         }
+        hr {
+            margin: 40px 0;
+            border: none;
+            border-top: 2px solid #ddd;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        strong {
+            color: #2c3e50;
+        }
+        em {
+            color: #666;
+        }
+        #content {
+            min-height: 400px;
+        }
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #999;
+        }
+        .footer {
+            text-align: center;
+            color: #888;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy for Hungarian Culture Exam App</h1>
-        <p class="last-updated">Last updated: November 16, 2025</p>
-        
-        <h2>1. General Information</h2>
-        <p>Hungarian Culture Exam ("the App") is an educational application that helps users prepare for the Hungarian Cultural Knowledge Exam.</p>
-        <p><strong>The App does not collect, store, transmit, or process any personal data.</strong></p>
-        <p>The App is designed for general educational use and does not require user registration or an account.</p>
-
-        <h2>2. Subscriptions and Payments</h2>
-        <p>The App offers an optional auto-renewable subscription.</p>
-        <p>All payments, refunds, and billing operations are processed exclusively through Google Play in accordance with the Google Play Terms of Service.</p>
-        
-        <p>We do not have access to:</p>
-        <ul>
-            <li>your name</li>
-            <li>your email address</li>
-            <li>your Google account</li>
-            <li>your payment information</li>
-            <li>your Google Play purchase history</li>
-        </ul>
-        
-        <p>Google Play provides us only with a purchase token, which is used internally to unlock premium content on your device.</p>
-
-        <h2>3. Data Collection</h2>
-        <p>The App:</p>
-        <ul>
-            <li>does NOT collect personal data</li>
-            <li>does NOT use analytics or tracking tools</li>
-            <li>does NOT store data on external servers</li>
-            <li>does NOT request permissions beyond those required for app functionality</li>
-            <li>processes all study progress and settings locally on the user's device</li>
-        </ul>
-
-        <h2>4. Sharing of Data</h2>
-        <p>Since the App does not collect data, it does not share anything with third parties.</p>
-
-        <h2>5. Children's Privacy</h2>
-        <p>The App is intended for users aged 13+.</p>
-        <p>Since the App does not collect any personal information, it is compliant with COPPA/GDPR-K requirements.</p>
-
-        <h2>6. Security</h2>
-        <p>All data (if any) remains exclusively on the user's device.</p>
-        <p>No external databases or cloud servers are used.</p>
-
-        <h2>7. Contact Information</h2>
-        <div class="contact-info">
-            <p>If you have questions, you may contact us:</p>
-            <p>📧 Email: <a href="mailto:hungarycultureexam@gmail.com">hungarycultureexam@gmail.com</a></p>
-        </div>
-
-        <hr style="margin-top: 40px; border: none; border-top: 1px solid #ddd;">
-        <p style="text-align: center; color: #888; margin-top: 20px;">© 2025 Hungarian Culture Exam App. All rights reserved.</p>
+        <div id="content" class="loading">Loading privacy policy...</div>
+        <div class="footer">© 2025 Hungarian Culture Exam App. All rights reserved.</div>
     </div>
+
+    <script>
+        // Simple markdown to HTML converter
+        function parseMarkdown(markdown) {
+            let html = markdown;
+            
+            // Convert headers
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+            html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+            html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+            
+            // Convert bold and italic
+            html = html.replace(/\*\*\*(.*?)\*\*\*/g, '<strong><em>$1</em></strong>');
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+            
+            // Convert code blocks
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+            
+            // Convert horizontal rules
+            html = html.replace(/^---$/gim, '<hr>');
+            
+            // Convert links
+            html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+            
+            // Convert lists
+            const lines = html.split('\n');
+            let inList = false;
+            let processedLines = [];
+            
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i];
+                
+                // Unordered list
+                if (line.match(/^- (.+)$/)) {
+                    if (!inList) {
+                        processedLines.push('<ul>');
+                        inList = 'ul';
+                    }
+                    processedLines.push('<li>' + line.replace(/^- /, '') + '</li>');
+                } else {
+                    if (inList) {
+                        processedLines.push('</' + inList + '>');
+                        inList = false;
+                    }
+                    processedLines.push(line);
+                }
+            }
+            
+            if (inList) {
+                processedLines.push('</' + inList + '>');
+            }
+            
+            html = processedLines.join('\n');
+            
+            // Convert paragraphs (lines that aren't already wrapped in tags)
+            html = html.split('\n\n').map(para => {
+                para = para.trim();
+                if (!para) return '';
+                if (para.match(/^<[^>]+>/)) return para;
+                return '<p>' + para.replace(/\n/g, ' ') + '</p>';
+            }).join('\n');
+            
+            return html;
+        }
+        
+        // Fetch and render the privacy policy from PRIVACY_POLICY.md
+        async function loadPrivacyPolicy() {
+            try {
+                const response = await fetch('PRIVACY_POLICY.md');
+                if (!response.ok) {
+                    throw new Error('Failed to load privacy policy');
+                }
+                const markdown = await response.text();
+                
+                // Convert markdown to HTML
+                const html = parseMarkdown(markdown);
+                
+                // Insert the HTML into the content div
+                document.getElementById('content').innerHTML = html;
+                
+                // Make email links clickable
+                const content = document.getElementById('content');
+                const textNodes = [];
+                const walk = document.createTreeWalker(content, NodeFilter.SHOW_TEXT, null, false);
+                let node;
+                while (node = walk.nextNode()) {
+                    textNodes.push(node);
+                }
+                
+                textNodes.forEach(textNode => {
+                    const text = textNode.textContent;
+                    const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/;
+                    if (emailRegex.test(text)) {
+                        const email = text.match(emailRegex)[0];
+                        const link = document.createElement('a');
+                        link.href = 'mailto:' + email;
+                        link.textContent = email;
+                        
+                        const before = text.substring(0, text.indexOf(email));
+                        const after = text.substring(text.indexOf(email) + email.length);
+                        
+                        const parent = textNode.parentNode;
+                        if (before) parent.insertBefore(document.createTextNode(before), textNode);
+                        parent.insertBefore(link, textNode);
+                        if (after) parent.insertBefore(document.createTextNode(after), textNode);
+                        parent.removeChild(textNode);
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading privacy policy:', error);
+                document.getElementById('content').innerHTML = 
+                    '<h1>Privacy Policy</h1><p>Error loading privacy policy. Please try again later.</p>';
+            }
+        }
+
+        // Load the privacy policy when the page loads
+        window.addEventListener('DOMContentLoaded', loadPrivacyPolicy);
+    </script>
 </body>
 </html>
