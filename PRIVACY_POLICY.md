@@ -45,10 +45,7 @@ To provide educational content and enhance the learning experience, the App inte
 
 ### External services may include:
 - **Wikipedia / Wikimedia** – fetching summaries or images  
-- **LibreTranslate** – translating short educational content  
-- **Notion API** – receiving optional user feedback  
 - **Our content API** – loading structured study material  
-- **YouTube** – opening or embedding educational videos  
 
 ### Types of non-personal technical data that may be transmitted:
 - Language code  
