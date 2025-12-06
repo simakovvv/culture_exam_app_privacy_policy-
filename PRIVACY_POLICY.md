@@ -69,4 +69,4 @@ No external databases or cloud servers are used.
 ## 7. Contact Information
 
 If you have questions, you may contact us:
-📧 support@hungarianculture.app
+📧 hungarycultureexam@gmail.com
