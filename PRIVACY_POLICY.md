@@ -24,6 +24,24 @@ We do not have access to:
 
 Google Play provides us only with a purchase token, which is used internally to unlock premium content on your device.
 
+## Subscription Verification Data
+
+To provide premium features, the app uses an anonymous user identifier and technical subscription data:
+
+- Anonymous User ID (UUID) generated on the device and stored locally.
+- Subscription technical data: purchase token, product ID, platform, and subscription status.
+
+No personal data (such as email, name, or contact information) is collected. The technical data is sent to our backend solely for payment verification with the platform provider (e.g., Google Play). The backend stores only the minimum required fields to maintain subscription status:
+
+- userId
+- productId
+- purchaseToken
+- platform
+- expireAt
+- isActive
+
+Data is used exclusively to verify payments and determine access to premium content. If the subscription is inactive or expired, premium content may be restricted until payment status is confirmed.
+
 ## 3. Data Collection
 
 The App:
