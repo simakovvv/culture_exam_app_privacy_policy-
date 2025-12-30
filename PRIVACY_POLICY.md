@@ -157,7 +157,7 @@ For users in the European Economic Area (EEA), our legal basis for processing yo
 
 If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
 
-**Email**: support@hungarianculture.app  
+**Email**: hungarycultureexam@gmail.com
 **Subject Line**: Privacy Policy Inquiry
 
 We will respond to your inquiry within 30 days.
