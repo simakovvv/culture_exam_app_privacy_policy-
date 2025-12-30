@@ -49,8 +49,6 @@ All payment processing is handled exclusively by Google Play in accordance with 
 
 ## 2. How We Use Information
 
-## 2. How We Use Information
-
 We use the collected information for the following purposes:
 
 - **Service Delivery**: To provide and maintain the App's functionality
