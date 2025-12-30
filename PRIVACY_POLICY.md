@@ -105,7 +105,7 @@ Depending on your jurisdiction, you may have the following rights:
 - **Data Portability**: Request transfer of your data in a machine-readable format
 - **Withdraw Consent**: Withdraw consent for data processing where applicable
 
-To exercise these rights, please contact us at support@hungarianculture.app
+To exercise these rights, please contact us at hungarycultureexam@gmail.com
 
 **Opting Out of Analytics**: While there is no in-app setting to disable analytics, you may:
 - Limit ad tracking through your device settings (iOS: Settings > Privacy > Tracking; Android: Settings > Google > Ads)
