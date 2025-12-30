@@ -47,17 +47,6 @@
         li {
             margin-bottom: 8px;
         }
-        .last-updated {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .contact-info {
-            background-color: #ecf0f1;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 30px;
-        }
         a {
             color: #3498db;
             text-decoration: none;
@@ -65,62 +54,65 @@
         a:hover {
             text-decoration: underline;
         }
+        strong {
+            color: #2c3e50;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .error {
+            background-color: #fee;
+            border: 1px solid #fcc;
+            padding: 20px;
+            border-radius: 5px;
+            color: #c33;
+        }
     </style>
+    <!-- Библиотека для конвертации Markdown в HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy for Hungarian Culture Exam App</h1>
-        <p class="last-updated">Last updated: November 16, 2025</p>
-        
-        <h2>1. General Information</h2>
-        <p>Hungarian Culture Exam ("the App") is an educational application that helps users prepare for the Hungarian Cultural Knowledge Exam.</p>
-        <p><strong>The App does not collect, store, transmit, or process any personal data.</strong></p>
-        <p>The App is designed for general educational use and does not require user registration or an account.</p>
-
-        <h2>2. Subscriptions and Payments</h2>
-        <p>The App offers an optional auto-renewable subscription.</p>
-        <p>All payments, refunds, and billing operations are processed exclusively through Google Play in accordance with the Google Play Terms of Service.</p>
-        
-        <p>We do not have access to:</p>
-        <ul>
-            <li>your name</li>
-            <li>your email address</li>
-            <li>your Google account</li>
-            <li>your payment information</li>
-            <li>your Google Play purchase history</li>
-        </ul>
-        
-        <p>Google Play provides us only with a purchase token, which is used internally to unlock premium content on your device.</p>
-
-        <h2>3. Data Collection</h2>
-        <p>The App:</p>
-        <ul>
-            <li>does NOT collect personal data</li>
-            <li>does NOT use analytics or tracking tools</li>
-            <li>does NOT store data on external servers</li>
-            <li>does NOT request permissions beyond those required for app functionality</li>
-            <li>processes all study progress and settings locally on the user's device</li>
-        </ul>
-
-        <h2>4. Sharing of Data</h2>
-        <p>Since the App does not collect data, it does not share anything with third parties.</p>
-
-        <h2>5. Children's Privacy</h2>
-        <p>The App is intended for users aged 13+.</p>
-        <p>Since the App does not collect any personal information, it is compliant with COPPA/GDPR-K requirements.</p>
-
-        <h2>6. Security</h2>
-        <p>All data (if any) remains exclusively on the user's device.</p>
-        <p>No external databases or cloud servers are used.</p>
-
-        <h2>7. Contact Information</h2>
-        <div class="contact-info">
-            <p>If you have questions, you may contact us:</p>
-            <p>📧 Email: <a href="mailto:hungarycultureexam@gmail.com">hungarycultureexam@gmail.com</a></p>
+        <div id="content" class="loading">
+            Loading Privacy Policy...
         </div>
-
-        <hr style="margin-top: 40px; border: none; border-top: 1px solid #ddd;">
-        <p style="text-align: center; color: #888; margin-top: 20px;">© 2025 Hungarian Culture Exam App. All rights reserved.</p>
     </div>
+
+    <script>
+        // Загружаем содержимое из PRIVACY_POLICY.md
+        async function loadPrivacyPolicy() {
+            try {
+                // Загружаем raw-версию файла с GitHub
+                const response = await fetch('https://raw.githubusercontent.com/simakovvv/culture_exam_app_privacy_policy-/main/PRIVACY_POLICY.md');
+                
+                if (!response.ok) {
+                    throw new Error('Failed to load privacy policy');
+                }
+                
+                const markdown = await response.text();
+                
+                // Конвертируем Markdown в HTML
+                const htmlContent = marked.parse(markdown);
+                
+                // Вставляем HTML в контейнер
+                document.getElementById('content').innerHTML = htmlContent;
+                
+            } catch (error) {
+                console.error('Error loading privacy policy:', error);
+                document.getElementById('content').innerHTML = `
+                    <div class="error">
+                        <h2>Error Loading Privacy Policy</h2>
+                        <p>Unable to load the privacy policy. Please try again later or view it directly on 
+                        <a href="https://github.com/simakovvv/culture_exam_app_privacy_policy-/blob/main/PRIVACY_POLICY.md" target="_blank">GitHub</a>.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Загружаем политику конфиденциальности при загрузке страницы
+        loadPrivacyPolicy();
+    </script>
 </body>
 </html>
